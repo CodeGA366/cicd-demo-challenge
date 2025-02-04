@@ -3,9 +3,21 @@ import db from '../config/connection.js';
 
 export default async (modelName: "Question", collectionName: string) => {
   try {
-    let modelExists = await models[modelName].db.db.listCollections({
+    // Use a type assertion to assure TypeScript that the model exists
+    const model = models[modelName] as typeof models[typeof modelName];
+
+    // Check if the model is defined
+    if (!model) {
+      throw new Error(`Model ${modelName} does not exist.`);
+    }
+
+    if (!model.db || !model.db.db) {
+      throw new Error(`Database connection for model ${modelName} is not defined.`);
+    }
+
+    const modelExists = await model.db.db.listCollections({
       name: collectionName
-    }).toArray()
+    }).toArray();
 
     if (modelExists.length) {
       await db.dropCollection(collectionName);
