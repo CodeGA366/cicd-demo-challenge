@@ -39,5 +39,4 @@ jobs:
 
       - name: Run Cypress Component Tests
         run: |
-          cd client
           npm run test-component
