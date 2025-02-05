@@ -1,4 +1,4 @@
-name: Run Cypress Tests
+name: Run Tests
 
 on:
   pull_request:
@@ -32,8 +32,12 @@ jobs:
           cd ../client
           npm install --save-dev typescript ts-node
 
-      - name: Run Cypress tests
+      - name: Run Unit Tests
         run: |
           cd client
-          npm run test
-          
+          npm run test -- --watchAll=false  # Run unit tests using Vitest
+
+      - name: Run Cypress Component Tests
+        run: |
+          cd client
+          npm run test-component
