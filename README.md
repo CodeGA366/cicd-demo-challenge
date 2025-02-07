@@ -3,7 +3,9 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
-this project is for demonstration purposes only. Use this project to demo a CICD pipeline! You can also visit the URL and take a coding Quiz. 
+this project is for demonstration purposes only. Use this project to demo a CICD pipeline! You can also visit the URL and take a coding Quiz.
+[Live Application](https://techquiz-dga7.onrender.com) 
+![Application Screenshot](./assets/quiz.png)
 
 ## Table of Contents
 - [Installation](#installation)
